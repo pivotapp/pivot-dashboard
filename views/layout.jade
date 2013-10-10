@@ -12,41 +12,15 @@ html(data-ng-app='pivot')
       each style in styles
         link(href=style, rel="stylesheet")
 
-    script(src='/build/polymer.concat.min.js')
+    script(src='/build/polymer-v0.0.20131003.min.js')
     script.
       if (window.location.hash === '#_=_') window.location.hash = ''; var startTime = Date.now();window.env = !{JSON.stringify(env)};
 
-  body
+  body(data-ng-controller="IndexController")
     block body
     block scripts
       each script in scripts
         script(src=script)
-
-    polymer-element(name="p-apps-list")
-      template: ul
-        template(repeat="{{app in apps}}")
-          content
-
-      include scripts/apps-list.js
-
-    polymer-element(name="p-app-link", attribute="app")
-      template
-        p sadfsdaf {{app.href}}
-
-      include scripts/app-link.js
-
-
-    polymer-element(name="p-root")
-      template
-        p-apps-list
-          p-app-link(bind)
-
-      include scripts/root.js
-
-
-
-    p-root
-
 
     script.
       if (window.metric) metric({'measure': 'page_load_time', val: (Date.now() - startTime), units: 'ms'});
