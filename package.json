@@ -15,6 +15,7 @@
   "readmeFilename": "README.md",
   "dependencies": {
     "simple-stack-ui": "~0.1.0",
-    "startup": "~0.2.2"
+    "startup": "~0.2.2",
+    "envs": "~0.1.3"
   }
 }

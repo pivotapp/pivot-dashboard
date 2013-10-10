@@ -1,10 +1,13 @@
 {
-  "name": "pivot-ui",
   "repo": "pivotapp/pivot-ui",
+  "name": "pivot-ui",
   "description": "Pivot UI",
   "version": "0.0.1",
   "keywords": [],
-  "dependencies": {},
+  "dependencies": {
+    "CamShaft/hyperagent": "*",
+    "CamShaft/envs": "*"
+  },
   "development": {},
   "license": "MIT"
 }
