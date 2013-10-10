@@ -24,6 +24,7 @@
     "component": "~0.17.6",
     "jshint": "~2.1.11",
     "nghtml": "~0.1.0",
-    "stylus": "~0.38.0"
+    "stylus": "~0.38.0",
+    "uglify-js": "~2.4.0"
   }
 }
