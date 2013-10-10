@@ -20,9 +20,10 @@
   "scripts": [
     "public/javascripts/index.js",
     "public/javascripts/config.js",
-    "public/javascripts/controllers/account.js",
-    "public/javascripts/controllers/apps.js",
-    "public/javascripts/controllers/index.js"
+    "public/javascripts/controllers/index.js",
+    "public/javascripts/directives/hyper.js",
+    "public/javascripts/directives/hyper-form.js",
+    "public/javascripts/directives/hyper-input.js"
   ],
   "templates": [
     "public/partials/apps.nghtml"

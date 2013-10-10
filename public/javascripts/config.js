@@ -28,9 +28,15 @@ client.set(token.auth());
  * Initialize the controllers
  */
 
-var AccountController = require('./controllers/account');
-var AppsController = require('./controllers/apps');
 var IndexController = require('./controllers/index');
+
+/**
+ * Initialize the directives
+ */
+
+require('./directives/hyper');
+require('./directives/hyper-form');
+require('./directives/hyper-input');
 
 /**
  * Load the partials
@@ -49,8 +55,7 @@ app.config([
   function($routeProvider, $locationProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: apps,
-        controller: AppsController
+        templateUrl: apps
       });
       // .otherwise({
       //   templateUrl: notFound,
