@@ -7,8 +7,25 @@
   "dependencies": {
     "CamShaft/hyperagent": "*",
     "CamShaft/envs": "*",
-    "CamShaft/component-angular": "*"
+    "CamShaft/component-angular": "*",
+    "CamShaft/access-token": "*",
+    "CamShaft/in-progress": "*",
+    "CamShaft/websafe-base64": "*",
+    "component/each": "*",
+    "component/type": "*",
+    "yields/slug": "*"
   },
   "development": {},
+  "main": "public/javascripts/config.js",
+  "scripts": [
+    "public/javascripts/index.js",
+    "public/javascripts/config.js",
+    "public/javascripts/controllers/account.js",
+    "public/javascripts/controllers/apps.js",
+    "public/javascripts/controllers/index.js"
+  ],
+  "templates": [
+    "public/partials/apps.nghtml"
+  ],
   "license": "MIT"
 }

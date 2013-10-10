@@ -51,7 +51,7 @@ app.config([
       .when('/', {
         templateUrl: apps,
         controller: AppsController
-      })
+      });
       // .otherwise({
       //   templateUrl: notFound,
       //   controller: IndexController
