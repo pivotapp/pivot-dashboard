@@ -1,0 +1,10 @@
+{
+  "name": "pivot-ui",
+  "repo": "pivotapp/pivot-ui",
+  "description": "Pivot UI",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {},
+  "development": {},
+  "license": "MIT"
+}

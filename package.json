@@ -1,0 +1,20 @@
+{
+  "name": "pivot-ui",
+  "version": "0.1.0",
+  "description": "User interface for the pivot dashboard",
+  "main": "app.js",
+  "scripts": {
+    "test": "NODE_ENV=test mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pivotapp/pivot-ui.git"
+  },
+  "author": "Cameron Bytheway <cameron@pivotapp.io>",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "dependencies": {
+    "simple-stack-ui": "~0.1.0",
+    "startup": "~0.2.2"
+  }
+}
