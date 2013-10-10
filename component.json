@@ -25,6 +25,9 @@
     "public/javascripts/directives/hyper-form.js",
     "public/javascripts/directives/hyper-input.js"
   ],
+  "styles": [
+    "public/stylesheets/main.css"
+  ],
   "templates": [
     "public/partials/apps.nghtml"
   ],
