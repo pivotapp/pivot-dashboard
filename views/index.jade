@@ -2,4 +2,12 @@ extends layout
 
 block body
   div(data-ng-controller="IndexController")
+    div(data-ng-controller="HyperController")
+      a(href="/account") My Account
+      | –
+      a(href="/") My Apps
+      div(data-ng-show="app", data-hyper="app.name")
+        a(data-hyper-link="/apps/:name/:app")
+          h2(data-ng-bind="name")
+
     main(data-ng-view="")

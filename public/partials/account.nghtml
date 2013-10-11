@@ -1,4 +1,3 @@
-<a href="/">My Apps</a>
 <ul data-hyper=".account">
   <h2 data-hyper-bind="account.name"></h2>
   <p data-hyper-bind="account.email"></p>

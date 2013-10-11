@@ -13,11 +13,27 @@ var client = require('hyperagent');
  */
 
 function HyperController($scope, $routeParams) {
-  each($routeParams, function(key, value) {
-    if (key === 'slug') return;
-    var href = decode(value);
-    if (href.indexOf('http') !== 0) return;
-    fetch(href, key, $scope);
+  $scope.$watch(function() {
+    return JSON.stringify($routeParams);
+  }, function(newVal, oldVal) {
+
+    // Clean up the old parameters
+    each(JSON.parse(oldVal), function(key, value) {
+      if ($routeParams[key] !== value) delete $scope[key];
+    });
+
+    // Add the new params
+    each($routeParams, function(key, value) {
+      if (key === 'slug') return;
+
+      $scope.$watch(function() {
+        return $routeParams[key];
+      }, function(value) {
+        var href = decode(value);
+        if (href.indexOf('http') !== 0) return;
+        fetch(href, key, $scope);
+      });
+    });
   });
 }
 

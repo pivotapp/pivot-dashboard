@@ -1,5 +1,3 @@
-<a href="/account">My Account</a>
-
 <ul data-hyper=".apps">
   <li data-ng-repeat="app in apps">
     <a data-hyper="app.name" data-ng-bind="name" data-hyper-link="/apps/:name/:app"></a>
