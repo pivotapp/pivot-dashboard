@@ -24,8 +24,10 @@
     "public/javascripts/controllers/index.js",
     "public/javascripts/controllers/hyper.js",
     "public/javascripts/directives/hyper.js",
+    "public/javascripts/directives/hyper-bind.js",
     "public/javascripts/directives/hyper-form.js",
     "public/javascripts/directives/hyper-input.js",
+    "public/javascripts/directives/hyper-lib.js",
     "public/javascripts/directives/hyper-link.js"
   ],
   "styles": [

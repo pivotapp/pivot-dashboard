@@ -6,11 +6,11 @@
 <h3>Bandits</h3>
 <ul data-hyper="app.bandits">
   <li data-ng-repeat="bandit in bandits">
-    <span data-hyper="bandit.name" data-ng-bind="name"></span>
+    <span data-hyper-bind="bandit.name"></span>
     <h4>Arms</h4>
     <ul data-hyper="bandit.arms">
       <li data-ng-repeat="arm in arms">
-        <span data-hyper="arm.name" data-ng-bind="name"></span>
+        <span data-hyper-bind="arm.name"></span>
       </li>
     </ul>
   </li>

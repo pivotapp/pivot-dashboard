@@ -36,6 +36,7 @@ var HyperController = require('./controllers/hyper');
  */
 
 require('./directives/hyper');
+require('./directives/hyper-bind');
 require('./directives/hyper-form');
 require('./directives/hyper-input');
 require('./directives/hyper-link');
