@@ -2,8 +2,8 @@
   <h2 data-hyper-bind="account.name"></h2>
   <p data-hyper-bind="account.email"></p>
   <ul data-hyper="account.apps">
-    <li data-ng-repeat="app in apps">
-      <a data-hyper-bind="app.name" data-hyper-link="/apps/:name/:app"></a>
+    <li data-ng-repeat="app in apps" data-hyper="app.name">
+      <a data-ng-bind="name" data-hyper-link="/apps/:name/:app"></a>
     </li>
   </ul>
 </ul>
