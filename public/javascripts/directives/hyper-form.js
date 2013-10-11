@@ -35,7 +35,6 @@ function hyperForm() {
   };
 }
 
-
 /**
  * Register it with angular
  */

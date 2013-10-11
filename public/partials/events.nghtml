@@ -1,0 +1,11 @@
+<a href="/account">My Account</a>
+<a data-hyper="app.name" data-hyper-link="/apps/:name/:app">
+  <h2 data-ng-bind="name"></h2>
+</a>
+
+<h3>Events</h3>
+<ul data-hyper="app.events">
+  <li data-ng-repeat="event in events">
+    <span data-hyper="event.name" data-ng-bind="name"></span>: <span data-hyper="event.reward" data-ng-bind="reward"></span>
+  </li>
+</ul>

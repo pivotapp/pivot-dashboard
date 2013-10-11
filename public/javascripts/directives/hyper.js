@@ -104,6 +104,9 @@ function traverse(conf, parent, i, cb) {
   // It's local
   if (!value.href) return traverse(conf, value, i + 1, cb);
 
+  // We're just getting the link
+  if (conf.path[i + 1] === 'href') return cb(null, value);
+
   // It's a link
   client.get(value.href).on('error', cb).end(function(res) {
     var body = res.body;

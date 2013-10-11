@@ -1,0 +1,17 @@
+<a href="/account">My Account</a>
+<a data-hyper="app.name" data-hyper-link="/apps/:name/:app">
+  <h2 data-ng-bind="name"></h2>
+</a>
+
+<h3>Bandits</h3>
+<ul data-hyper="app.bandits">
+  <li data-ng-repeat="bandit in bandits">
+    <span data-hyper="bandit.name" data-ng-bind="name"></span>
+    <h4>Arms</h4>
+    <ul data-hyper="bandit.arms">
+      <li data-ng-repeat="arm in arms">
+        <span data-hyper="arm.name" data-ng-bind="name"></span>
+      </li>
+    </ul>
+  </li>
+</ul>

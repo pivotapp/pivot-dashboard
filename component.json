@@ -13,6 +13,7 @@
     "CamShaft/websafe-base64": "*",
     "component/each": "*",
     "component/type": "*",
+    "component/path-to-regexp": "*",
     "yields/slug": "*"
   },
   "development": {},
@@ -21,15 +22,21 @@
     "public/javascripts/index.js",
     "public/javascripts/config.js",
     "public/javascripts/controllers/index.js",
+    "public/javascripts/controllers/hyper.js",
     "public/javascripts/directives/hyper.js",
     "public/javascripts/directives/hyper-form.js",
-    "public/javascripts/directives/hyper-input.js"
+    "public/javascripts/directives/hyper-input.js",
+    "public/javascripts/directives/hyper-link.js"
   ],
   "styles": [
     "public/stylesheets/main.css"
   ],
   "templates": [
-    "public/partials/apps.nghtml"
+    "public/partials/account.nghtml",
+    "public/partials/apps.nghtml",
+    "public/partials/app.nghtml",
+    "public/partials/bandits.nghtml",
+    "public/partials/events.nghtml"
   ],
   "license": "MIT"
 }

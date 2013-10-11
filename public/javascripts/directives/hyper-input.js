@@ -30,7 +30,6 @@ function hyperInput() {
   };
 }
 
-
 /**
  * Register it with angular
  */

@@ -1,41 +1,7 @@
+<a href="/account">My Account</a>
+
 <ul data-hyper=".apps">
   <li data-ng-repeat="app in apps">
-    <h2 data-hyper="app.name" data-ng-bind="name"></h2>
-    <h3>Events</h3>
-    <ul data-hyper="app.events">
-      <li data-ng-repeat="event in events">
-        <h4 data-hyper="event.name" data-ng-bind="name"></h4>
-        <p data-hyper="event.reward" data-ng-bind="reward"></p>
-      </li>
-    </ul>
-    <h3>Bandits</h3>
-    <ul data-hyper="app.bandits">
-      <li data-ng-repeat="bandit in bandits">
-        <h4 data-hyper="bandit.name" data-ng-bind="name"></h4>
-        <form data-hyper="bandit.disable" data-hyper-form="disable">
-          <input type="submit" value="Disable">
-        </form>
-        <form data-hyper="bandit.enable" data-hyper-form="enable">
-          <input type="submit" value="Enable">
-        </form>
-        <h5>Arms</h5>
-        <ul data-hyper="bandit.arms">
-          <li data-ng-repeat="arm in arms">
-            <h6 data-hyper="arm.name" data-ng-bind="name"></h6>
-            <form data-hyper="arm.delete" hyper-form="delete">
-              <input type="submit" value="Delete">
-            </form>
-          </li>
-        </ul>
-        <form data-hyper="createArm as bandit.create-arm" data-hyper-form="createArm">
-          <input data-ng-repeat="(name, conf) in inputs" name="{{name}}" hyper-input="conf">
-          <input type="submit" value="Create arm">
-        </form>
-      </li>
-    </ul>
+    <a data-hyper="app.name" data-ng-bind="name" data-hyper-link="/apps/:name/:app"></a>
   </li>
 </ul>
-<div data-hyper=".account">
-  <h2>Account</h2>
-  <p>Name <span data-hyper="account.name" data-ng-bind="name"></span></p>
-</div>

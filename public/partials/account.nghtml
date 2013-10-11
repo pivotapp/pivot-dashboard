@@ -1,0 +1,10 @@
+<a href="/">My Apps</a>
+<ul data-hyper=".account">
+  <h2 data-hyper="account.name" data-ng-bind="name"></h2>
+  <p data-hyper="account.email" data-ng-bind="email"></p>
+  <ul data-hyper="account.apps">
+    <li data-ng-repeat="app in apps">
+      <a data-hyper="app.name" data-ng-bind="name" data-hyper-link="/apps/:name/:app"></a>
+    </li>
+  </ul>
+</ul>

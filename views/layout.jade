@@ -15,8 +15,9 @@ html(data-ng-app='pivot')
     script.
       if (window.location.hash === '#_=_') window.location.hash = ''; var startTime = Date.now();window.env = !{JSON.stringify(env)};
 
-  body(data-ng-controller="IndexController")
+  body
     block body
+
     block scripts
       each script in scripts
         script(src=script)

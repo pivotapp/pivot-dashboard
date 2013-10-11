@@ -29,6 +29,7 @@ client.set(token.auth());
  */
 
 var IndexController = require('./controllers/index');
+var HyperController = require('./controllers/hyper');
 
 /**
  * Initialize the directives
@@ -37,12 +38,17 @@ var IndexController = require('./controllers/index');
 require('./directives/hyper');
 require('./directives/hyper-form');
 require('./directives/hyper-input');
+require('./directives/hyper-link');
 
 /**
  * Load the partials
  */
 
-var apps = require('../partials/apps.js');
+var account = require('../partials/account');
+var apps = require('../partials/apps');
+var appPartial = require('../partials/app');
+var events = require('../partials/events');
+var bandits = require('../partials/bandits');
 
 /**
  * Configure the app
@@ -56,6 +62,21 @@ app.config([
     $routeProvider
       .when('/', {
         templateUrl: apps
+      })
+      .when('/account', {
+        templateUrl: account
+      })
+      .when('/apps/:slug/:app', {
+        templateUrl: appPartial,
+        controller: HyperController
+      })
+      .when('/apps/:slug/:app/events', {
+        templateUrl: events,
+        controller: HyperController
+      })
+      .when('/apps/:slug/:app/bandits', {
+        templateUrl: bandits,
+        controller: HyperController
       });
       // .otherwise({
       //   templateUrl: notFound,
