@@ -8,7 +8,7 @@ block body
         script(async, data-ng-repeat="script in scripts", data-ng-src="{{script.src}}", onload="{{script.onload}}")
 
       //- If the api didn't tell us a provider, use our default
-      div(data-hyper="app.header", data-ng-show="!header")
+      div(data-hyper="app.standalone", data-ng-show="standalone").ng-cloak
         a(href="/account") My Account
         | –
         a(href="/") My Apps

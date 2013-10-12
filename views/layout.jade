@@ -7,14 +7,13 @@ html(data-ng-app='pivot')
     meta(name='description', content=description)
     meta(name='author', content='Pivot App, LLC')
     meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0')
-
     block styles
       each style in styles
         link(href=style, rel="stylesheet")
-
+    style.
+      .ng-cloak{display:none};
     script.
       if (window.location.hash === '#_=_') window.location.hash = ''; var startTime = Date.now();window.env = !{JSON.stringify(env)};
-
   body
     block body
 
