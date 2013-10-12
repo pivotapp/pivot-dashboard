@@ -1,4 +1,4 @@
-<div data-hyper="app.name">
-  <a data-hyper-link="/apps/:name/:app/events">Events</a>
-  <a data-hyper-link="/apps/:name/:app/bandits">Bandits</a>
+<div>
+  <a data-hyper-link="/apps/:app/events">Events</a>
+  <a data-hyper-link="/apps/:app/bandits">Bandits</a>
 </div>

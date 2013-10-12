@@ -3,11 +3,18 @@ extends layout
 block body
   div(data-ng-controller="IndexController")
     div(data-ng-controller="HyperController")
-      a(href="/account") My Account
-      | –
-      a(href="/") My Apps
-      div(data-ng-show="app", data-hyper="app.name")
-        a(data-hyper-link="/apps/:name/:app")
-          h2(data-ng-bind="name")
+      //- Load any third-party headers
+      div(data-hyper="app.header.scripts")
+        script(async, data-ng-repeat="script in scripts", data-ng-src="{{script.src}}", onload="{{script.onload}}")
+
+      //- If the api didn't tell us a provider, use our default
+      div(data-hyper="app.header", data-ng-show="!header")
+        a(href="/account") My Account
+        | –
+        a(href="/") My Apps
+
+      div(data-ng-show="app")
+        a(data-hyper-link="/apps/:app")
+          h2(data-hyper-bind="app.name")
 
     main(data-ng-view="")

@@ -67,15 +67,15 @@ app.config([
       .when('/account', {
         templateUrl: account
       })
-      .when('/apps/:slug/:app', {
+      .when('/apps/:app', {
         templateUrl: appPartial,
         controller: HyperController
       })
-      .when('/apps/:slug/:app/events', {
+      .when('/apps/:app/events', {
         templateUrl: events,
         controller: HyperController
       })
-      .when('/apps/:slug/:app/bandits', {
+      .when('/apps/:app/bandits', {
         templateUrl: bandits,
         controller: HyperController
       });
