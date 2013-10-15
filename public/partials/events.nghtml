@@ -1,5 +1,0 @@
-<ul data-hyper="app.events">
-  <li data-ng-repeat="event in events">
-    <span data-hyper-bind="event.name"></span>: <span data-hyper-bind="event.reward"></span>
-  </li>
-</ul>
