@@ -33,7 +33,7 @@
   "styles": [
     "public/stylesheets/main.css"
   ],
-  "templates": [
+  "angular-templates": [
     "public/partials/account.jade",
     "public/partials/apps.jade",
     "public/partials/bandits.jade",
