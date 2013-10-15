@@ -2,7 +2,7 @@ extends layout
 
 block body
   div(data-ng-controller="IndexController")
-    div(data-ng-include, src="'/partials/topnav.nghtml'")
-    div(data-ng-include, src="'/partials/sidenav.nghtml'")
+    div(data-ng-include, src="'/partials/topnav.jade'")
+    div(data-ng-include, src="'/partials/sidenav.jade'")
     main(data-ng-view="")
-    div(data-ng-include, src="'/partials/footer.nghtml'")
+    div(data-ng-include, src="'/partials/footer.jade'")

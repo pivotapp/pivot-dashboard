@@ -1,7 +1,7 @@
 JS_FILES=$(shell find public -type f -name '*.js')
 CSS_FILES=$(shell find public -type f -name '*.css')
 STYL_FILES=$(shell find public -type f -name '*.styl')
-PARTIAL_FILES=$(shell find public -type f -name '*.nghtml')
+PARTIAL_FILES=$(shell find public -type f -name '*.jade')
 
 prod: build build/build.min.js build/build.min.css hash
 

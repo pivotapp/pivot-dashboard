@@ -7,7 +7,7 @@ var envs = require('envs');
 var format = require('url').format;
 
 var app = module.exports = stack({
-  restricted: true
+  restricted: false
 });
 
 app.useAfter('base', '/apps', function accessToken(req, res, next) {

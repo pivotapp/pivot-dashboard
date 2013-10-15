@@ -34,15 +34,15 @@
     "public/stylesheets/main.css"
   ],
   "templates": [
-    "public/partials/account.nghtml",
-    "public/partials/apps.nghtml",
-    "public/partials/config.nghtml",
-    "public/partials/bandits.nghtml",
-    "public/partials/events.nghtml",
-    "public/partials/footer.nghtml",
-    "public/partials/graphs.nghtml",
-    "public/partials/sidenav.nghtml",
-    "public/partials/topnav.nghtml"
+    "public/partials/account.jade",
+    "public/partials/apps.jade",
+    "public/partials/bandits.jade",
+    "public/partials/config.jade",
+    "public/partials/events.jade",
+    "public/partials/footer.jade",
+    "public/partials/graphs.jade",
+    "public/partials/sidenav.jade",
+    "public/partials/topnav.jade"
   ],
   "license": "MIT"
 }

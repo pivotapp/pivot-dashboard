@@ -1,0 +1,11 @@
+div(data-ng-controller='HyperController')
+  div(data-hyper='app.header.scripts')
+    script(async='async', data-ng-repeat='script in scripts', data-ng-src='{{script.src}}', onload='{{script.onload}}')
+  .ng-cloak(data-hyper='app.standalone', data-ng-show='standalone')
+    div APPS DROPDOWN GOES HERE
+    div
+      a(href='/account') My Account
+      a(href='/') My Apps
+  h1 Pivot
+  h2(data-ng-show='app', data-hyper-bind='app.name')
+

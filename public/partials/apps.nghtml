@@ -1,5 +1,0 @@
-<ul data-hyper=".apps">
-  <li data-ng-repeat="app in apps">
-    <a data-hyper-bind="app.name" data-hyper-link="/apps/:app"></a>
-  </li>
-</ul>

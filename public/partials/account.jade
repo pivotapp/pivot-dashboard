@@ -1,0 +1,8 @@
+div(data-hyper='.account')
+  h2(data-hyper-bind='account.name')
+    p(data-hyper-bind='account.email')
+    ul(data-hyper='account.apps')
+      li(data-ng-repeat='app in apps')
+        a(data-hyper-bind='app.name', data-hyper-link='/apps/:app')
+
+
