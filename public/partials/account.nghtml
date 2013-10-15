@@ -1,4 +1,4 @@
-<ul data-hyper=".account">
+<div data-hyper=".account">
   <h2 data-hyper-bind="account.name"></h2>
   <p data-hyper-bind="account.email"></p>
   <ul data-hyper="account.apps">
@@ -6,4 +6,4 @@
       <a data-hyper-bind="app.name" data-hyper-link="/apps/:app"></a>
     </li>
   </ul>
-</ul>
+</div>
