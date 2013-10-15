@@ -1,0 +1,16 @@
+<div data-ng-controller="HyperController">
+  <div data-hyper="app.header.scripts">
+    <script async data-ng-repeat="script in scripts" data-ng-src="{{script.src}}" onload="{{script.onload}}"></script>
+  </div>
+  <div data-hyper="app.standalone" data-ng-show="standalone" class="ng-cloak">
+    <div>
+      APPS DROPDOWN GOES HERE
+    </div>
+    <div>
+      <a href="/account">My Account</a>
+      <a href="/">My Apps</a>
+    </div>
+  </div>
+  <h1>Pivot</h1>
+  <h2 data-ng-show="app" data-hyper-bind="app.name"></h2>
+</div>

@@ -47,9 +47,13 @@ require('./directives/hyper-link');
 
 var account = require('../partials/account');
 var apps = require('../partials/apps');
-var appPartial = require('../partials/app');
+var config = require('../partials/config');
+var graphs = require('../partials/graphs');
 var events = require('../partials/events');
+var footer = require('../partials/footer');
 var bandits = require('../partials/bandits');
+var sidenav = require('../partials/sidenav');
+var topnav = require('../partials/topnav');
 
 /**
  * Configure the app
@@ -68,16 +72,27 @@ app.config([
         templateUrl: account
       })
       .when('/apps/:app', {
-        templateUrl: appPartial,
-        controller: HyperController
+        redirectTo: '/apps/:app/config'
+      })
+      .when('/apps/:app/config', {
+        templateUrl: config,
+        controller: HyperController,
+        section: 'config'
+      })
+      .when('/apps/:app/graphs', {
+        templateUrl: graphs,
+        controller: HyperController,
+        section: 'graphs'
       })
       .when('/apps/:app/events', {
         templateUrl: events,
-        controller: HyperController
+        controller: HyperController,
+        section: 'events'
       })
       .when('/apps/:app/bandits', {
         templateUrl: bandits,
-        controller: HyperController
+        controller: HyperController,
+        section: 'bandits'
       });
       // .otherwise({
       //   templateUrl: notFound,
@@ -85,5 +100,20 @@ app.config([
       // });
 
     $locationProvider.html5Mode(true);
+  }
+]);
+
+/**
+ * Listen for route changes
+ */
+
+app.run([
+  '$rootScope',
+  '$location',
+
+  function($rootScope, $location) {
+    $rootScope.$on('$routeChangeSuccess', function(currentRoute, conf) {
+      $rootScope.section = conf.$$route.section;
+    });
   }
 ]);

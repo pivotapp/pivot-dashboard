@@ -1,6 +1,3 @@
-<a data-hyper-link="/apps/:app/events">Events</a>
-<a data-hyper-link="/apps/:app/bandits">Bandits</a>
-<h4>Config</h4>
 <ul data-hyper="app.config">
   <li data-ng-repeat="(name, value) in config">
     <pre>{{name}}={{value}}</pre>

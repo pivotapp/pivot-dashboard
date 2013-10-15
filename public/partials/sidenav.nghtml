@@ -1,0 +1,6 @@
+<div data-ng-controller="HyperController">
+  <a data-hyper-link="/apps/:app/config" data-ng-class="{active: section == 'config'}">Config</a>
+  <a data-hyper-link="/apps/:app/graphs" data-ng-class="{active: section == 'graphs'}">Graphs</a>
+  <a data-hyper-link="/apps/:app/events" data-ng-class="{active: section == 'events'}">Events</a>
+  <a data-hyper-link="/apps/:app/bandits" data-ng-class="{active: section == 'bandits'}">Bandits</a>
+</div>

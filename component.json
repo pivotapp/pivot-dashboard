@@ -36,9 +36,13 @@
   "templates": [
     "public/partials/account.nghtml",
     "public/partials/apps.nghtml",
-    "public/partials/app.nghtml",
+    "public/partials/config.nghtml",
     "public/partials/bandits.nghtml",
-    "public/partials/events.nghtml"
+    "public/partials/events.nghtml",
+    "public/partials/footer.nghtml",
+    "public/partials/graphs.nghtml",
+    "public/partials/sidenav.nghtml",
+    "public/partials/topnav.nghtml"
   ],
   "license": "MIT"
 }
