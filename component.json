@@ -33,6 +33,10 @@
   "styles": [
     "public/stylesheets/main.styl"
   ],
+  "images": [
+    "public/images/logo-blue.png",
+    "public/images/logo.png"
+  ],
   "angular-templates": [
     "public/partials/account.jade",
     "public/partials/apps.jade",
