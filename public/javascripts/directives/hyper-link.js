@@ -33,7 +33,7 @@ function hyperLink() {
         keys.forEach(function(key, i) {
           var v = values[i];
           var value = (v && v.href ? encode(v.href) : slug(v || ''));
-          if (value) href = href.replace(':' + key.name, value);
+          if (value === 0 || value) href = href.replace(':' + key.name, value);
           else loaded = false;
         });
 

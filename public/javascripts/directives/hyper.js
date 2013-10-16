@@ -22,7 +22,7 @@ function hyper() {
 
         safeApply.call($scope, function() {
           $scope[conf.name] = value;
-          if (value) elem.css('display', '');
+          if (value === 0 || value) elem.css('display', '');
         });
       });
     }

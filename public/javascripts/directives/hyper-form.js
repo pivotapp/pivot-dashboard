@@ -4,6 +4,7 @@
 
 var app = require('..');
 var each = require('each');
+var client = require('hyperagent');
 
 /**
  * hyperForm
@@ -16,6 +17,7 @@ function hyperForm() {
     controller: function() {},
     link: function($scope, elem, attrs) {
       elem.css('display', 'none');
+      var onsubmit = attrs.hyperDone ? $scope.$eval(attrs.hyperDone) : noop;
       $scope.$watch(attrs.hyperForm, function(value) {
         if (!value || !value.action) return;
 
@@ -30,11 +32,38 @@ function hyperForm() {
           $scope.inputs[name] = conf;
         });
 
-        // TODO handle form submission
+        // TODO handle form validation
+        var lowerMethod = (value.method || 'GET').toLowerCase();
+
+        // TODO improve this - the code looks terrible
+        var form = elem[0];
+        form.onsubmit = function() {
+          var data = {};
+
+          for (var i = form.length - 1; i >= 0; i--) {
+            var input = form[i];
+            if (input.name) data[input.name] = input.value;
+          }
+
+          var req = client[lowerMethod](value.action);
+
+          if (lowerMethod === 'get') req.query(data);
+          else req.send(data);
+
+          req
+            .on('error', onsubmit)
+            .end(function(res) {
+              onsubmit(null, res);
+              // TODO make a request with the subscription service
+              client.get(value.action).forceLoad().end(function() {});
+            });
+        };
       });
     }
   };
 }
+
+function noop() {}
 
 /**
  * Register it with angular

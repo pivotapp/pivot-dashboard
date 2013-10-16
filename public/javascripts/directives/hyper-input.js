@@ -13,8 +13,9 @@ function hyperInput() {
     require: 'hyperInput',
     controller: function() {},
     link: function($scope, elem, attrs) {
+      elem.css('display', 'none');
       $scope.$watch(attrs.hyperInput, function(conf) {
-        if (!conf) return elem.css('display', 'none');
+        if (!conf) return;
 
         elem.css('display', '');
 

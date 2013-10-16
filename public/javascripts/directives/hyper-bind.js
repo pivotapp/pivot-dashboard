@@ -18,8 +18,9 @@ function hyperBind() {
       lib(attrs.hyperBind, $scope, function(err, value) {
         // TODO handle error better
         if (err) return console.log(err);
-        elem.text(value || '');
-        if (value) elem.css('display', '');
+
+        elem.text(value === 0 ? value : (value || ''));
+        if (value === 0 || value) elem.css('display', '');
       });
     }
   };
