@@ -16,6 +16,7 @@ function hyperLink() {
     require: 'hyperLink',
     controller: function() {},
     link: function($scope, elem, attrs) {
+      if (!attrs.hyperProgressive) elem.css('display', 'none');
       var keys = [];
       pathToRegexp(attrs.hyperLink, keys);
 
@@ -26,14 +27,18 @@ function hyperLink() {
       watchCollection.call($scope, exp, function(values) {
         if (!values) return;
 
+        var loaded = true;
+
         var href = attrs.hyperLink;
         keys.forEach(function(key, i) {
           var v = values[i];
-          var value = (v && v.href ? encode(v.href) : slug(v || '')) || '-';
-          href = href.replace(':' + key.name, value);
+          var value = (v && v.href ? encode(v.href) : slug(v || ''));
+          if (value) href = href.replace(':' + key.name, value);
+          else loaded = false;
         });
 
         elem.attr('href', href);
+        if (loaded) elem.css('display', '');
       });
     }
   };

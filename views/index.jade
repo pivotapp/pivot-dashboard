@@ -4,7 +4,7 @@ block body
 
   div(data-ng-controller="HyperController")
 
-    div(data-hyper='app.header.scripts')
+    div(data-hyper='.header.scripts')
       script(async='async', data-ng-repeat='script in scripts', data-ng-src='{{script.src}}', onload='{{script.onload}}')
 
     mixin partial(name)

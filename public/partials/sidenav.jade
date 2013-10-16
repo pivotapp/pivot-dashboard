@@ -1,4 +1,4 @@
-div(data-ng-controller='HyperController')
+div(data-ng-controller='HyperController', data-ng-show="app")
   mixin hyper-link(Name)
     - var name = Name.toLowerCase();
     a(data-hyper-link='/apps/:app/'+ name, data-ng-class='{active: section == ' + name + '}')= Name

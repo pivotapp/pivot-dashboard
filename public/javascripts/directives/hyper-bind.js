@@ -14,10 +14,12 @@ function hyperBind() {
     require: 'hyperBind',
     controller: function() {},
     link: function($scope, elem, attrs) {
+      if (!attrs.hyperProgressive) elem.css('display', 'none');
       lib(attrs.hyperBind, $scope, function(err, value) {
         // TODO handle error better
         if (err) return console.log(err);
-        elem.text(value);
+        elem.text(value || '');
+        if (value) elem.css('display', '');
       });
     }
   };

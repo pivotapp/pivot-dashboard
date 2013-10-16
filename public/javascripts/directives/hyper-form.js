@@ -15,8 +15,9 @@ function hyperForm() {
     scope: true,
     controller: function() {},
     link: function($scope, elem, attrs) {
+      elem.css('display', 'none');
       $scope.$watch(attrs.hyperForm, function(value) {
-        if (!value || !value.action) return elem.css('display', 'none');
+        if (!value || !value.action) return;
 
         elem.css('display', '');
         elem.attr('method', value.method || 'GET');
