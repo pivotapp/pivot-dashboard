@@ -31,7 +31,7 @@
     "public/javascripts/directives/hyper-link.js"
   ],
   "styles": [
-    "public/stylesheets/main.css"
+    "public/stylesheets/main.styl"
   ],
   "angular-templates": [
     "public/partials/account.jade",

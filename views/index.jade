@@ -1,8 +1,18 @@
 extends layout
 
 block body
-  div(data-ng-controller="IndexController")
-    div(data-ng-include, src="'/partials/topnav.jade'")
-    div(data-ng-include, src="'/partials/sidenav.jade'")
+
+  div(data-ng-controller="HyperController")
+
+    div(data-hyper='app.header.scripts')
+      script(async='async', data-ng-repeat='script in scripts', data-ng-src='{{script.src}}', onload='{{script.onload}}')
+
+    mixin partial(name)
+      div(data-ng-include, src="'/partials/" + name + ".jade'")
+
+    +partial('topnav')
+    +partial('sidenav')
+
     main(data-ng-view="")
-    div(data-ng-include, src="'/partials/footer.jade'")
+
+    +partial('footer')

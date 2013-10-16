@@ -22,6 +22,9 @@ function hyperInput() {
         elem.attr('value', conf.value);
         elem.attr('type', conf.type || 'text');
         elem.attr('placeholder', conf.prompt || conf.placeholder || name);
+        if (conf.min) elem.attr('min', conf.min);
+        if (conf.max) elem.attr('max', conf.max);
+        if (conf.step) elem.attr('step', conf.step);
         if (conf.required) elem.attr('required', 'required');
 
         // TODO do validation

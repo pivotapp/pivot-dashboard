@@ -3,3 +3,7 @@ ul(data-hyper='app.events')
     span(data-hyper-bind='event.name')
     | :
     span(data-hyper-bind='event.reward')
+    form(data-hyper-form='event.update')
+      input(data-ng-repeat='(name, config) in inputs', name='{{config}}', data-hyper-input='config')
+      input(type="submit", value="update")
+
