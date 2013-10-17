@@ -18,7 +18,9 @@
     "mbostock/d3": "*",
     "component/css": "*",
     "twolfson/computedStyle": "*",
-    "jkroso/viewport": "*"
+    "jkroso/viewport": "*",
+    "CamShaft/hyper-path": "*",
+    "CamShaft/hyper-emitter": "*"
   },
   "development": {},
   "main": "public/javascripts/config.js",

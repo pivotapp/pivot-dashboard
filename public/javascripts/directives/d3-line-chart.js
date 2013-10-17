@@ -10,7 +10,7 @@ var viewport = require('viewport');
 function d3LineChart() {
   return {
     link: function($scope, elem, attr) {
-      var x, y, xAxis, yAxis, line, data;
+      var x, y, xAxis, yAxis, line, data, yLabel;
       var width = 0;
       var height = 400;
       var margin = {top: 20, right: 20, bottom: 30, left: 50};
@@ -51,12 +51,6 @@ function d3LineChart() {
         init();
       });
 
-      var yLabel;
-      $scope.$watch(attr.d3YLabel, function(label) {
-        yLabel = label;
-        render();
-      });
-
       function init() {
         if (!width) return;
         x = d3.time.scale()
@@ -74,8 +68,8 @@ function d3LineChart() {
           .orient("left");
 
         line = d3.svg.line()
-          .x(function(d) { return x(d.t); })
-          .y(function(d) { return y(d.v); });
+          .x(function(d) { return x(d.x); })
+          .y(function(d) { return y(d.y); });
 
         svg
           .attr("width", width + margin.left + margin.right)
@@ -90,8 +84,8 @@ function d3LineChart() {
       function render() {
         if (!width || !data) return;
 
-        x.domain(d3.extent(data, function(d) { return d.t; }));
-        y.domain(d3.extent(data, function(d) { return d.v; }));
+        x.domain(d3.extent(data, function(d) { return d.x; }));
+        y.domain(d3.extent(data, function(d) { return d.y; }));
 
         g.select('.x')
           .call(xAxis);
@@ -109,10 +103,13 @@ function d3LineChart() {
 
       $scope.$watch(attr.d3LineChart, function(newData) {
         if (!newData) return;
-        data = newData.map(function(d) {
+
+        yLabel = newData.yLabel;
+
+        data = newData.groups[0].points.map(function(d) {
           return {
-            v: d.v,
-            t: new Date(d.t * 1000)
+            y: d.y,
+            x: new Date(d.x * 1000)
           };
         });
         render();

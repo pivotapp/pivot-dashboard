@@ -3,7 +3,12 @@
  */
 
 var app = require('..');
-var lib = require('./hyper-lib');
+var request = require('hyper-path');
+var emitter = require('hyper-emitter');
+
+setInterval(function() {
+  emitter.refresh('http://localhost:5000/api/apps/app123/reports/points');
+}, 1000);
 
 /**
  * hyper
@@ -16,12 +21,20 @@ function hyper() {
     controller: function() {},
     link: function($scope, elem, attrs) {
       if (!attrs.hyperProgressive) elem.css('display', 'none');
-      lib(attrs.hyper, $scope, function(err, value, conf) {
+      var req = request(attrs.hyper);
+
+      if (!req.isRoot) $scope.$watch(req.index, function(parent) {
+        var root = {};
+        root[req.index] = parent;
+        req.scope(root);
+      }, true);
+
+      req.on(function(err, value) {
         // TODO handle error better
         if (err) return console.log(err);
 
         safeApply.call($scope, function() {
-          $scope[conf.name] = value;
+          $scope[req.target] = value;
           if (value === 0 || value) elem.css('display', '');
         });
       });

@@ -34,4 +34,4 @@ hash: $(wildcard build/*)
 clean:
 	rm -fr build components
 
-.PHONY: clean build prod lint
+.PHONY: clean build prod lint build
