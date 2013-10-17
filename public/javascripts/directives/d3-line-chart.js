@@ -10,7 +10,7 @@ var viewport = require('viewport');
 function d3LineChart() {
   return {
     link: function($scope, elem, attr) {
-      var x, y, xAxis, yAxis, line, data, yLabel;
+      var x, y, xAxis, yAxis, line, data, yLabel, group;
       var width = 0;
       var height = 400;
       var margin = {top: 20, right: 20, bottom: 30, left: 50};
@@ -81,6 +81,16 @@ function d3LineChart() {
         g
           .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
+        group = g.selectAll('.group')
+            .data([])
+          .enter().append('g')
+            .attr('class', 'group');
+
+        group.append('path')
+          .attr('class', 'line')
+          .attr('d', function(d) { return line(d.values); })
+          .style('stroke', function(d) { return color(d.name); });
+
         render();
       }
 
@@ -111,15 +121,10 @@ function d3LineChart() {
           .select("text")
           .text(yLabel);
 
-        var group = g.selectAll('.group')
-            .data(groups)
-          .enter().append('g')
-            .attr('class', 'group');
-
-        group.append('path')
-          .attr('class', 'line')
-          .attr('d', function(d) { return line(d.values); })
-          .style('stroke', function(d) { return color(d.name); });
+        d3.selectAll('.group')
+          .data(groups)
+          .transition()
+            .duration(2500);
 
         if (groups.length === 1) return;
 
