@@ -7,45 +7,15 @@ var d3 = require('d3');
 var css = require('computedStyle');
 var viewport = require('viewport');
 
-/**
- * d3 line chart
- */
-
 function d3LineChart() {
   return {
     link: function($scope, elem, attr) {
       var x, y, xAxis, yAxis, line, data;
       var width = 0;
       var height = 400;
-      var margin = {top: 20, right: 0, bottom: 30, left: 0};
-
-      var parent = elem.parent();
-
-      function getParentWidth() {
-        var left = parseInt(css(parent[0], 'padding-left'), 10);
-        var right = parseInt(css(parent[0], 'padding-right'), 10);
-        return parent[0].clientWidth - (left + right);
-      }
-
-      $scope.$watch(getParentWidth, function(newWidth) {
-        width = newWidth;
-        init();
-        render();
-      });
-
-      viewport.on('resize', function() {
-        width = getParentWidth();
-        init();
-        render();
-      });
-
-      var yLabel;
-      $scope.$watch(attr.d3YLabel, function(label) {
-        yLabel = label;
-      });
+      var margin = {top: 20, right: 20, bottom: 30, left: 50};
 
       var svg = d3.select(elem[0]).append('svg');
-
       var g = svg.append('g');
 
       g.append("g")
@@ -62,6 +32,30 @@ function d3LineChart() {
 
       g.append('path')
         .attr("class", "line");
+
+      var parent = elem.parent();
+
+      function getParentWidth() {
+        var left = parseInt(css(parent[0], 'padding-left'), 10) + margin.left;
+        var right = parseInt(css(parent[0], 'padding-right'), 10) + margin.right;
+        return parent[0].clientWidth - (left + right);
+      }
+
+      $scope.$watch(getParentWidth, function(newWidth) {
+        width = newWidth;
+        init();
+      });
+
+      viewport.on('resize', function() {
+        width = getParentWidth();
+        init();
+      });
+
+      var yLabel;
+      $scope.$watch(attr.d3YLabel, function(label) {
+        yLabel = label;
+        render();
+      });
 
       function init() {
         if (!width) return;
@@ -89,6 +83,8 @@ function d3LineChart() {
 
         g
           .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+        render();
       }
 
       function render() {
