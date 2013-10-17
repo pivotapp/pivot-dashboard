@@ -1,10 +1,9 @@
-div(data-ng-controller='HyperController', data-ng-show="app")
-  mixin hyper-link(Name)
-    - var name = Name.toLowerCase();
-    a(data-hyper-link='/apps/:app/'+ name, data-ng-class='{active: section == ' + name + '}')= Name
+mixin hyper-link(Name)
+  - var name = Name.toLowerCase();
+  a(data-hyper-link='/apps/:app/'+ name, data-ng-class='{active: section == ' + name + '}')= Name
 
-  +hyper-link('Graphs')
-  +hyper-link('Events')
-  +hyper-link('Bandits')
-  +hyper-link('Config')
++hyper-link('Graphs')
++hyper-link('Events')
++hyper-link('Bandits')
++hyper-link('Config')
 

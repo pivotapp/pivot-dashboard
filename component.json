@@ -14,7 +14,11 @@
     "component/each": "*",
     "component/type": "*",
     "component/path-to-regexp": "*",
-    "yields/slug": "*"
+    "yields/slug": "*",
+    "mbostock/d3": "*",
+    "component/css": "*",
+    "twolfson/computedStyle": "*",
+    "jkroso/viewport": "*"
   },
   "development": {},
   "main": "public/javascripts/config.js",
@@ -28,10 +32,11 @@
     "public/javascripts/directives/hyper-form.js",
     "public/javascripts/directives/hyper-input.js",
     "public/javascripts/directives/hyper-lib.js",
-    "public/javascripts/directives/hyper-link.js"
+    "public/javascripts/directives/hyper-link.js",
+    "public/javascripts/directives/d3-line-chart.js"
   ],
   "styles": [
-    "public/stylesheets/main.styl"
+    "public/stylesheets/index.styl"
   ],
   "images": [
     "public/images/logo-blue.png",

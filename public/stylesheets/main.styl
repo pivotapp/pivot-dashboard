@@ -1,8 +1,3 @@
-@import 'nib'
-
-$color-primary = #0B79E5
-$color-dark = darken($color-primary, 20%)
-
 html
   font-family Helvetica, Arial, san-serif
 
@@ -11,11 +6,15 @@ body
   min-height 100vh
   flex-direction column
   margin 0
+  &.heroku-boomerang-loaded
+    padding-top 40px
 
 nav
-footer
+header
 main
+footer
   padding 20px
+
 
 a
 a:visited
@@ -29,37 +28,30 @@ a:hover
 header
   text-align center
 
-filter()
-  -webkit-filter arguments
-  -moz-filter arguments
-  -ms-filter arguments
-  filter arguments
-
-nav.top
-  > div
-    display flex
-    flex-direction row
-    justify-content space-between
-    align-items center
+header
+  display flex
+  flex-direction row
+  justify-content space-between
+  align-items center
 
 
-    figure.brand
-      background-image url('../images/logo-blue.png')
-      background-size contain
-      background-repeat no-repeat
-      background-position 50%
-      height 50px
-      width 50px
-      filter grayscale(100%) contrast(130%)
-      margin 0 0 0 10px
+  figure.brand
+    background-image url('../images/logo-blue.png')
+    background-size contain
+    background-repeat no-repeat
+    background-position 50%
+    height 50px
+    width 50px
+    filter grayscale(100%) contrast(130%)
+    margin 0 0 0 10px
 
-      &:hover
-        transition -webkit-filter 200ms linear
-        filter grayscale(0%) contrast(100%)
-      a
-        height 100%
-        width 100%
-        display block
+    &:hover
+      transition -webkit-filter 200ms linear
+      filter grayscale(0%) contrast(100%)
+    a
+      height 100%
+      width 100%
+      display block
 
 
 
@@ -71,13 +63,14 @@ nav.top
   nav
     border-right 1px solid #ccc
     text-align right
-    > div
-      display flex
-      flex-direction column
-      a
-        padding 0 10px 10px
+    display flex
+    flex-direction column
+    a
+      padding 0 10px 10px
   main
     display flex
     flex 3
+
+
 
 

@@ -104,6 +104,10 @@ function traverse(conf, parent, i, cb) {
     // We didn't get a body
     if (!body) return cb(null);
 
+
+    // Return body if path has trailing dot
+    if (conf.path[i + 1] === '') return cb(null, body);
+
     // It's the same name as what the link was
     if (body[key]) return traverse(conf, body[key], i + 1, cb);
 
