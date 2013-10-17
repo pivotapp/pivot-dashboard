@@ -41,6 +41,7 @@ require('./directives/hyper-form');
 require('./directives/hyper-input');
 require('./directives/hyper-link');
 require('./directives/d3-line-chart');
+require('./directives/d3-normalized-stacked');
 
 /**
  * Load the partials

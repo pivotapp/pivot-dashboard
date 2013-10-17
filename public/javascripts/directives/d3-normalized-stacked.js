@@ -7,13 +7,13 @@ var d3 = require('d3');
 var css = require('computedStyle');
 var viewport = require('viewport');
 
-function d3LineChart() {
+function d3NormalizedStacked() {
   return {
     link: function($scope, elem, attr) {
       var x, y, xAxis, yAxis, line, data, yLabel;
       var width = 0;
       var height = 400;
-      var margin = {top: 20, right: 20, bottom: 30, left: 50};
+      var margin = {top: 20, right: 100, bottom: 30, left: 40};
 
       var svg = d3.select(elem[0]).append('svg');
       var g = svg.append('g');
@@ -23,15 +23,7 @@ function d3LineChart() {
         .attr("transform", "translate(0," + height + ")");
 
       g.append("g")
-        .attr("class", "y axis")
-        .append("text")
-        .attr("transform", "rotate(-90)")
-        .attr("y", 6)
-        .attr("dy", ".71em")
-        .style("text-anchor", "end");
-
-      g.append('path')
-        .attr("class", "line");
+        .attr("class", "y axis");
 
       var color = d3.scale.category20c();
 
@@ -55,6 +47,7 @@ function d3LineChart() {
 
       function init() {
         if (!width) return;
+
         x = d3.time.scale()
           .range([0, width]);
 
@@ -67,12 +60,8 @@ function d3LineChart() {
 
         yAxis = d3.svg.axis()
           .scale(y)
-          .orient("left");
-
-        line = d3.svg.line()
-          .interpolate("basis")
-          .x(function(d) { return x(d.x); })
-          .y(function(d) { return y(d.y); });
+          .orient("left")
+          .tickFormat(d3.format(".0%"));
 
         svg
           .attr("width", width + margin.left + margin.right)
@@ -87,70 +76,54 @@ function d3LineChart() {
       function render() {
         if (!width || !data) return;
 
-        var groups = color.domain().map(function(name, i) {
-          return {
-            name: name,
-            values: data.map(function(d) {
-              return {x: d.x, y: d.y[i]};
-            })
-          };
-        });
-
         x.domain(d3.extent(data, function(d) { return d.x; }));
-
-        y.domain([
-          d3.min(groups, function(g) { return d3.min(g.values, function(v) { return v.y; }); }),
-          d3.max(groups, function(g) { return d3.max(g.values, function(v) { return v.y; }); })
-        ]);
 
         g.select('.x')
           .call(xAxis);
 
         g.select(".y")
-          .call(yAxis)
-          .select("text")
-          .text(yLabel);
+          .call(yAxis);
 
         var group = g.selectAll('.group')
-            .data(groups)
+            .data(data)
           .enter().append('g')
-            .attr('class', 'group');
+            .attr('class', 'group')
+            .attr('transform', function(d) { return 'translate(' + x(d.x) + ',0)'; });
 
-        group.append('path')
-          .attr('class', 'line')
-          .attr('d', function(d) { return line(d.values); })
-          .style('stroke', function(d) { return color(d.name); });
-
-        if (groups.length === 1) return;
-
-        group.append('text')
-          .datum(function(d) { return {name: d.name, value: d.values[d.values.length - 1]}; })
-          .attr('transform', function(d) { return 'translate(' + x(d.value.x) + ',' + y(d.value.y) + ')'; })
-          .attr('x', 3)
-          .attr('dy', '.35em')
-          .text(function(d) { return d.name; });
+        group.selectAll('rect')
+            .data(function(d) { return d.points; })
+          .enter().append('rect')
+            .attr('width', Math.floor(width / data.length))
+            .attr('y', function(d) { return y(d.y1); })
+            .attr('height', function(d) { return y(d.y0) - y(d.y1); })
+            .style('fill', function(d) { return color(d.name); });
       }
 
-      $scope.$watch(attr.d3LineChart, function(newData) {
+      $scope.$watch(attr.d3NormalizedStacked, function(newData) {
         if (!newData) return;
 
         yLabel = newData.yLabel;
         color.domain(newData.groups);
 
         data = newData.data.map(function(d) {
-          return {
+          var y0 = 0;
+          var newD = {
             x: new Date(d.x * 1000),
-            y: typeof d.y === 'number' ? [d.y] : d.y
-          };
+            y: d.y,
+            points: color.domain().map(function(name, i) { return {name: name, y0: y0, y1: y0 += d.y[i]}; })
+          };
+          newD.points.forEach(function(d) { d.y0 /= y0; d.y1 /= y0; });
+          return newD;
         });
+
         render();
       }, true);
     }
   };
 }
 
-app.directive('d3LineChart', [
-  d3LineChart
+app.directive('d3NormalizedStacked', [
+  d3NormalizedStacked
 ]);
 
-exports = module.exports = 'd3LineChart';
+exports = module.exports = 'd3NormalizedStacked';

@@ -7,7 +7,7 @@ var request = require('hyper-path');
 var emitter = require('hyper-emitter');
 
 setInterval(function() {
-  emitter.refresh('http://localhost:5000/api/apps/app123/reports/points');
+  emitter.refresh('http://localhost:5000/api/apps/app123/reports/events');
 }, 1000);
 
 /**
