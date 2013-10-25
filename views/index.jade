@@ -1,8 +1,8 @@
 extends ../node_modules/simple-stack-ui/views/layout
 
 block body
-  div(data-hyper='.header.scripts')
-    script(async='async', data-ng-repeat='script in scripts', data-ng-src='{{script.src}}', onload='{{script.onload}}')
+  div(data-hyper=".header.scripts")
+    script(async="async", data-ng-repeat="script in scripts", data-ng-src="{{script.src}}", onload="{{script.onload}}")
 
   header(data-ng-include, src="'/partials/topnav.jade'", data-hyper=".account", data-ng-show="account")
   .main-container

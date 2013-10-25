@@ -1,8 +1,8 @@
 mixin hyper-link(Name, attributes)
   - var name = Name.toLowerCase();
-  a(data-hyper-link='/apps/:app/'+ name, data-ng-class='{active: section == ' + name + '}', attributes)= Name
+  a(data-hyper-link="/apps/:app/"+ name, data-ng-class="{active: _route == '" + name + "'}", attributes)= Name
 
-+hyper-link('Graphs')(data-feature="graphs")
-+hyper-link('Events')
-+hyper-link('Bandits')
-+hyper-link('Config')
++hyper-link("Graphs")(data-feature="graphs")
++hyper-link("Events")
++hyper-link("Bandits")
++hyper-link("Config")
