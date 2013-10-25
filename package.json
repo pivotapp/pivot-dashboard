@@ -18,7 +18,7 @@
   "license": "MIT",
   "readmeFilename": "README.md",
   "dependencies": {
-    "simple-stack-ui": "~0.2.1",
+    "simple-stack-ui": "~0.2.3",
     "startup": "~0.3.0",
     "envs": "~0.1.3"
   }
