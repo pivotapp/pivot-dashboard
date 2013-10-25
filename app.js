@@ -3,34 +3,30 @@
  */
 
 var stack = require('simple-stack-ui');
-var envs = require('envs');
-var format = require('url').format;
+var sso = require('./lib/sso-access-token');
+var routes = require('./public/javascripts/routes');
+
+/**
+ * Expose the app
+ */
 
 var app = module.exports = stack({
-  restricted: false
+  restricted: false,
+  routes: routes
 });
 
-app.useAfter('base', '/apps', function accessToken(req, res, next) {
-  if (!req.query._access_token) return next();
+/**
+ * Initialize sso login for applications
+ */
 
-  var basePath = (req.get('x-orig-path') || '') + req._parsedUrl.pathname;
+app.useAfter('base', '/apps', sso());
 
-  res.cookie('_access_token', req.query._access_token, {
-    secure: ~req.base.indexOf('https://'),
-    path: basePath
-  });
-
-  delete req.query._access_token;
-
-  var href = format({
-    pathname: basePath,
-    query: req.query
-  });
-
-  res.redirect(href);
-});
+/**
+ * Setup app-wide locals
+ */
 
 app.locals({
+  app: 'pivot-dashboard',
   env: {
     API_URL: '/api'
   }

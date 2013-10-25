@@ -4,8 +4,7 @@ figure.brand
 span(data-hyper-bind='app.name')
 
 div(data-hyper='.account', data-ng-show='account')
-  a(href='/account') My Account
-  | &nbsp;|&nbsp;
+  span(data-feature="my-account")
+    a(href='/account') My Account
+    | &nbsp;|&nbsp;
   a(href='/') My Apps
-
-
