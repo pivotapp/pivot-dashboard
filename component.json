@@ -8,7 +8,8 @@
     "CamShaft/simple-ui": "*",
     "mbostock/d3": "*",
     "twolfson/computedStyle": "*",
-    "jkroso/viewport": "*"
+    "jkroso/viewport": "*",
+    "mvanasse/ng-hyper-animate": "*"
   },
   "development": {},
   "main": "public/javascripts/config.js",
