@@ -1,11 +1,16 @@
 extends ../node_modules/simple-stack-ui/views/layout
 
+block append styles
+  link(href="http://fonts.googleapis.com/css?family=Oxygen:700,400,300", rel="stylesheet", type="text/css")
+  link(href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.min.css", rel="stylesheet")
+
 block body
   div(data-hyper=".header.scripts")
     script(async="async", data-ng-repeat="script in scripts", data-ng-src="{{script.src}}", onload="{{script.onload}}")
 
-  header(data-ng-include, src="'/partials/topnav.jade'", data-hyper=".account", data-ng-show="account")
-  .main-container
-    nav.side(data-ng-include, src="'/partials/sidenav.jade'", data-ng-show="app")
-    main(data-ng-view="")
-  footer(data-ng-include, src="'/partials/footer.jade'", data-ng-show="app")
+  .wrapper
+    header(data-ng-include, src="'/partials/topnav.jade'", data-hyper=".account", data-ng-show="account")
+    .content
+      nav.side(data-ng-include, src="'/partials/sidenav.jade'", data-ng-show="app")
+      main(data-ng-view="")
+    footer(data-ng-include, src="'/partials/footer.jade'", data-ng-show="app")

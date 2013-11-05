@@ -1,7 +1,15 @@
-ul(data-hyper="app.bandits")
-  li(data-ng-repeat="bandit in bandits")
-    span(data-hyper-bind="bandit.name")
-    h4 Arms
+include ./includes/index
+
+ul.accordion(data-hyper="app.bandits")
+  section(data-ng-repeat="bandit in bandits")
+    input(type="checkbox", id="{{bandit.href}}", hidden="")
+    header
+      label.title(for="{{bandit.href}}", data-hyper-bind="bandit.name")
+      +toggle("bandit.href")
+      i.close.fa.fa-times
     ul(data-hyper="bandit.arms")
       li(data-ng-repeat="arm in arms")
-        span(data-hyper-bind="arm.name")
+        span.name(data-hyper-bind="arm.name")
+        +toggle("arm.href")
+        i.close.fa.fa-times
+

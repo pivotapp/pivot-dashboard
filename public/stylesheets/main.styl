@@ -1,78 +1,160 @@
-html
-  font-family Helvetica, Arial, san-serif
-  font-size 13px
-  color #111
-
-body
+.wrapper
+  min-height 100%
   display flex
-  min-height 100vh
   flex-direction column
-  margin 0
-  &.heroku-boomerang-loaded
-    padding-top 40px
 
-nav
-header
-main
-footer
-  padding 20px
+  > header
+  > footer
+  > .content > nav
+  > .content > main
+    padding PAD
 
+  > header
+    lace-row-space()
+    lace-pad-children()
+    lace-heroku-loaded()
 
-a
-a:visited
-a:active
-  color #333
-  text-decoration none
+    > .brand
+      lace-brand()
 
-a:hover
-  color $color-dark
+  > footer
+    lace-wrapper-footer()
 
-header
-  text-align center
+  > .content
+    lace-content()
+    > nav
+      lace-nav()
+      a
+        lace-nav-items()
+    > main
+      lace-main()
 
-header
-  display flex
-  flex-direction row
-  justify-content space-between
-  align-items center
+.brand
+  background-image url('../images/logo-blue.png')
 
+input
+  &[hidden]
+    display none!important
 
-  figure.brand
-    background-image url('../images/logo-blue.png')
-    background-size contain
-    background-repeat no-repeat
-    background-position 50%
-    height 50px
-    width 50px
-    filter grayscale(100%) contrast(130%)
-    margin 0 0 0 10px
+button
+  background transparent
+  border none
+  outline none
 
-    &:hover
-      transition -webkit-filter 200ms linear
-      filter grayscale(0%) contrast(100%)
-    a
+.toggle
+  label
+    position relative
+    cursor pointer
+    display flex
+    flex-direction row
+    align-items center
+    width 4rem
+    border 1px solid #ccc
+    text-align center
+    overflow hidden
+    *
+      transition-duration .2s!important
+      transition-property all
+    span
+      _height = 1.1rem
+      height _height
+      line-height _height
+      padding 0px
+      flex 1
+      font-size .8rem
+      font-weight bold
+    .selector
+      position absolute
+      flex 1
+      background rgba(white, .8)
       height 100%
-      width 100%
-      display block
+      width 2rem
+      border 1px solid rgba(black, .1)
+      border-top none
+      border-bottom none
+      &.left
+        left 0
+        border-left-width 0
+      &.right
+        left 4rem
+        border-right-width 0
+  input:checked ~ label
+    .selector
+      &.left
+        left -2rem
+      &.right
+        left 2rem
 
+.accordion
+  section
+    border 1px solid #ccc
+    margin-bottom PAD_SMALL
+    user-select none
 
+    header
+      display flex
+      justify-content space-between
+      align-items center
+      label.title
+        cursor pointer
+      > :first-child
+        padding-left PAD_SMALL * 2
+      > :last-child
+        margin-right PAD_SMALL
 
-.main-container
-  border-top 1px solid #ccc
-  border-bottom 1px solid #ccc
-  flex-direction row
-  display flex
-  nav
-    border-right 1px solid #ccc
-    text-align right
-    display flex
-    flex-direction column
-    a
-      padding 0 10px 10px
-  main
-    display flex
-    flex 3
-    flex-direction column
+    label.title
+    span.name
+      flex 1
+      padding-top PAD_SMALL
+      padding-bottom PAD_SMALL
 
+    ul
+      _speed = .3s
+      padding 0 PAD_SMALL
+      transition-duration _speed
+      transition-property all
+      border-top-width 0px
+      border-top-style solid
+      border-top-color #ccc
+      li
+        display flex
+        justify-content space-between
+        align-items center
+        overflow hidden
+        max-height 0
+        opacity 0
+        transition-duration _speed
+        transition-property all
+        border-width 0px
+        border-style solid
+        border-color #eee
+        margin 0
+        margin-bottom 0
+        span.name
+          padding-bottom 0
+          padding PAD_SMALL
 
+    input:checked ~
+      ul
+        border-top-width 1px
+        padding PAD_SMALL
+        li
+          max-height 30px
+          opacity 1
+          margin-bottom PAD_SMALL
+          border-width 1px
+          &:last-child
+            margin-bottom 0
+          span.name
+            padding-bottom PAD_SMALL
+
+.close
+  display block
+  width 2rem
+  padding PAD_SMALL
+  cursor pointer
+  text-align center
+  opacity .7
+  &:hover
+    opacity 1
 

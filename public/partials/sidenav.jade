@@ -1,8 +1,11 @@
-mixin hyper-link(Name, attributes)
+mixin hyper-link(Name, icon, attributes)
   - var name = Name.toLowerCase();
-  a(data-hyper-link="/apps/:app/"+ name, data-ng-class="{active: _route == '" + name + "'}", attributes)= Name
+  a(data-hyper-link="/apps/:app/"+ name,
+    data-ng-class="{active: _route == '" + name + "'}",
+    attributes)= Name
+    i(class="fa fa-#{icon}")
 
-+hyper-link("Graphs")(data-feature="graphs")
-+hyper-link("Events")
-+hyper-link("Bandits")
-+hyper-link("Config")
++hyper-link("Graphs", "bar-chart-o")(data-feature="graphs")
++hyper-link("Events", "bullseye")
++hyper-link("Bandits", "compass")
++hyper-link("Config", "cogs")
