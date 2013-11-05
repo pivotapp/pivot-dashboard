@@ -2,24 +2,27 @@
   "name": "pivot-dashboard",
   "version": "0.1.0",
   "description": "User interface for the pivot dashboard",
+  "author": "Cameron Bytheway <cameron@pivotapp.io>",
+  "license": "MIT",
   "main": "app.js",
   "scripts": {
-    "test": "NODE_ENV=test mocha"
+    "test": "NODE_ENV=test ./node_modules/.bin/mocha"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/pivotapp/pivot-dashboard.git"
   },
-  "author": "Cameron Bytheway <cameron@pivotapp.io>",
   "engines": {
     "node": "0.10.x",
     "npm": "1.x.x"
   },
-  "license": "MIT",
-  "readmeFilename": "README.md",
   "dependencies": {
-    "simple-stack-ui": "~0.2.2",
+    "simple-stack-ui": "~0.2.3",
     "startup": "~0.3.0",
     "envs": "~0.1.4"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "should": "*"
   }
 }
