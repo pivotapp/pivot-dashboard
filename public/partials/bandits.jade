@@ -1,22 +1,15 @@
-mixin toggle(id)
-  .toggle
-    input(type="checkbox", id=id, hidden="")
-    label(for=id)
-      span.on on
-      span.off off
-      .selector.left
-      .selector.right
+include ./includes/index
 
 ul.accordion(data-hyper="app.bandits")
   section(data-ng-repeat="bandit in bandits")
     input(type="checkbox", id="{{bandit.href}}", hidden="")
     header
       label.title(for="{{bandit.href}}", data-hyper-bind="bandit.name")
-      +toggle("{{'bandit-' + bandit.href}}")
-      .close ×
+      +toggle("bandit.href")
+      i.close.fa.fa-times
     ul(data-hyper="bandit.arms")
       li(data-ng-repeat="arm in arms")
         span.name(data-hyper-bind="arm.name")
-        +toggle("{{'arm-' + arm.href}}")
-        .close ×
+        +toggle("arm.href")
+        i.close.fa.fa-times
 

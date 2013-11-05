@@ -56,9 +56,13 @@ button
       transition-duration .2s!important
       transition-property all
     span
+      _height = 1.1rem
+      height _height
+      line-height _height
       padding 0px
-      height 15px
       flex 1
+      font-size .8rem
+      font-weight bold
     .selector
       position absolute
       flex 1
@@ -101,6 +105,8 @@ button
     label.title
     span.name
       flex 1
+      padding-top PAD_SMALL
+      padding-bottom PAD_SMALL
 
     ul
       _speed = .3s
@@ -121,13 +127,9 @@ button
         transition-property all
         border-width 0px
         border-style solid
-        border-color #ccc
+        border-color #eee
         margin 0
         margin-bottom 0
-        *
-          transition-duration _speed
-          transition-property all
-          opacity 0
         span.name
           padding-bottom 0
           padding PAD_SMALL
@@ -143,8 +145,6 @@ button
           border-width 1px
           &:last-child
             margin-bottom 0
-          *
-            opacity 1
           span.name
             padding-bottom PAD_SMALL
 
@@ -154,4 +154,7 @@ button
   padding PAD_SMALL
   cursor pointer
   text-align center
+  opacity .7
+  &:hover
+    opacity 1
 

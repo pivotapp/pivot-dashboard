@@ -1,0 +1,18 @@
+- function hash(h) {
+-   var h = h || "";
+-   var id = "{{" + h + ".slice(" + h + ".length - 10, " + h + ".length)" + "}}";
+-   id += Math.random().toString(36).slice(3)
+-   return id;
+- }
+
+mixin toggle(string)
+  id = hash(string)
+  form.toggle
+    input(type="checkbox", id=id, hidden="")
+    // span= id
+    label(for=id)
+      span.on on
+      span.off off
+      .selector.left
+      .selector.right
+

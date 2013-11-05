@@ -1,5 +1,9 @@
 extends ../node_modules/simple-stack-ui/views/layout
 
+block append styles
+  link(href="http://fonts.googleapis.com/css?family=Oxygen:700,400,300", rel="stylesheet", type="text/css")
+  link(href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.min.css", rel="stylesheet")
+
 block body
   div(data-hyper=".header.scripts")
     script(async="async", data-ng-repeat="script in scripts", data-ng-src="{{script.src}}", onload="{{script.onload}}")
