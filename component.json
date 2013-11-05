@@ -13,10 +13,10 @@
     "mvanasse/shoelace": "*"
   },
   "development": {},
-  "main": "public/javascripts/config.js",
+  "main": "public/javascripts/main.js",
   "scripts": [
     "public/javascripts/index.js",
-    "public/javascripts/config.js",
+    "public/javascripts/main.js",
     "public/javascripts/routes.js",
     "public/javascripts/directives/d3-line-chart.js",
     "public/javascripts/directives/d3-normalized-stacked.js"
