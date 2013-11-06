@@ -1,78 +1,45 @@
-html
-  font-family Helvetica, Arial, san-serif
-  font-size 13px
-  color #111
-
-body
+.wrapper
+  min-height 100%
   display flex
-  min-height 100vh
   flex-direction column
-  margin 0
-  &.heroku-boomerang-loaded
-    padding-top 40px
 
-nav
-header
-main
-footer
-  padding 20px
+  > header
+  > footer
+  > .content > nav
+  > .content > main
+    padding PAD
 
+  > header
+    lace-row-space()
+    lace-pad-children()
+    lace-heroku-loaded()
 
-a
-a:visited
-a:active
-  color #333
-  text-decoration none
+    > .brand
+      lace-brand()
 
-a:hover
-  color $color-dark
+  > footer
+    lace-wrapper-footer()
 
-header
+  > .content
+    lace-content()
+    > nav
+      lace-nav()
+      a
+        lace-nav-items()
+    > main
+      lace-main()
+
+.brand
+  background-image url('../images/logo-blue.png')
+
+.icon-close
+  display block
+  height 2rem
+  width 2rem
+  padding PAD_SMALL
+  cursor pointer
   text-align center
-
-header
-  display flex
-  flex-direction row
-  justify-content space-between
-  align-items center
-
-
-  figure.brand
-    background-image url('../images/logo-blue.png')
-    background-size contain
-    background-repeat no-repeat
-    background-position 50%
-    height 50px
-    width 50px
-    filter grayscale(100%) contrast(130%)
-    margin 0 0 0 10px
-
-    &:hover
-      transition -webkit-filter 200ms linear
-      filter grayscale(0%) contrast(100%)
-    a
-      height 100%
-      width 100%
-      display block
-
-
-
-.main-container
-  border-top 1px solid #ccc
-  border-bottom 1px solid #ccc
-  flex-direction row
-  display flex
-  nav
-    border-right 1px solid #ccc
-    text-align right
-    display flex
-    flex-direction column
-    a
-      padding 0 10px 10px
-  main
-    display flex
-    flex 3
-    flex-direction column
-
-
+  opacity .7
+  &:hover
+    opacity 1
 

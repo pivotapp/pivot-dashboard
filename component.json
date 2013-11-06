@@ -9,7 +9,8 @@
     "mbostock/d3": "*",
     "twolfson/computedStyle": "*",
     "jkroso/viewport": "*",
-    "mvanasse/ng-hyper-animate": "*"
+    "mvanasse/ng-hyper-animate": "*",
+    "mvanasse/shoelace": "*"
   },
   "development": {},
   "main": "public/javascripts/config.js",

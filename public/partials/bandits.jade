@@ -1,7 +1,14 @@
+include ./includes/index
+
 ul(data-hyper="app.bandits")
-  li(data-ng-repeat="bandit in bandits")
-    span(data-hyper-bind="bandit.name")
-    h4 Arms
-    ul(data-hyper="bandit.arms")
-      li(data-ng-repeat="arm in arms")
-        span(data-hyper-bind="arm.name")
+  +accordion-container(data-ng-repeat="bandit in bandits")
+    +accordion-header(data-accordion-id="{{$id}}",
+                      data-hyper-bind="bandit.name")
+      +toggle("{{$id}}")
+      +icon("close")
+    +accordion-content
+      +accordion-ul(data-hyper="bandit.arms")
+        +accordion-li(data-ng-repeat="arm in arms")
+          +accordion-li-label(data-hyper-bind="arm.name")
+          +toggle("{{$id}}")
+          +icon("close")
