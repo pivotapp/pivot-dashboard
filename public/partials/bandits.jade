@@ -12,3 +12,20 @@ ul(data-hyper="app.bandits")
           +accordion-li-label(data-hyper-bind="arm.name")
           +toggle("{{$id}}")
           +icon("close")
+
+    form(data-hyper-form="bandit.update")
+      span(data-hyper-status="error") {{error}}
+      span(data-hyper-status="progress") {{progress}}
+
+      input(type="checkbox", id=id, hidden="", name="enabled", value="bandit.enabled", data-hyper-submit)
+      label(for=id)
+        span.on on
+        span.off off
+        .selector.left
+        .selector.right
+
+    form(data-hyper-form="bandit.delete")
+      input(type="submit", value="x")
+
+form(data-hyper-form="app.bandits.create")
+  input(data-ng-repeat="(name, conf) in hyperInputs", name="{{name}}", data-ng-model="hyperValues[name]", data-hyper-input="conf")
